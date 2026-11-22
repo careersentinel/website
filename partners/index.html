@@ -66,6 +66,10 @@
     transition: opacity var(--t-mid) var(--ease), transform var(--t-mid) var(--ease), visibility 0s linear var(--t-mid); }
   .top.scrolled .nav .btn-sm { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
   @media (max-width: 480px) { .top.scrolled .nav .lnk { display: none; } }
+  /* Until the page is scrolled the button is invisible but still took its
+     width, which made the page wider than a phone (410px here, 434px in
+     German) and let it scroll sideways. */
+  @media (max-width: 480px) { .top:not(.scrolled) .nav .btn-sm { display: none; } }
 
   /* ---------- buttons ---------- */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;

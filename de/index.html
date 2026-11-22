@@ -13,6 +13,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://careersentinel.de/de/">
 <link rel="stylesheet" href="../fonts/fonts.css">
+<!-- The four fonts the first screen uses, fetched at once and not after the
+     stylesheet: the text used to jump when they arrived (desktop CLS 0.06 to 0.16). -->
+<link rel="preload" href="../fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -424,6 +430,9 @@
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   }
   footer .fine { max-width: 60ch; }
+  /* Links sit in a wrapping row with a gap, no dots between them: with
+     dots, a phone line could start with one. */
+  .foot-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; }
   a { color: var(--ink-dim); text-decoration: underline; text-underline-offset: 2px; }
   a:hover { color: var(--ink); }
 
@@ -491,7 +500,7 @@
 
 <div class="wrap">
   <header>
-    <a class="logo" href="#">Career Sentinel<span class="dot">.</span></a>
+    <a class="logo" href="./">Career Sentinel<span class="dot">.</span></a>
     <div class="made-in"><a class="t" href="https://check.careersentinel.de/check?lang=de&amp;via=header"><span class="wide">Kostenloser </span>CV-Check</a><span class="wide" aria-hidden="true">·</span><a class="t" href="../">EN</a><span class="where">· gebaut in Stuttgart</span></div>
   </header>
 
@@ -839,7 +848,7 @@
 
 <div class="wrap">
   <footer>
-    <div>Career Sentinel<span style="color:var(--accent)">.</span> © 2026 · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> <span style="white-space:nowrap">· <a href="https://check.careersentinel.de/check?lang=de&amp;via=footer">Kostenloser CV-Check</a></span> <span style="white-space:nowrap">· <a href="partners/">Für Partner</a></span> <span style="white-space:nowrap">· <a href="mailto:hallo@careersentinel.de">hallo@careersentinel.de</a></span></div>
+    <div class="foot-links"><span>Career Sentinel<span style="color:var(--accent)">.</span> © 2026</span><a href="../impressum.html">Impressum</a><a href="../datenschutz.html">Datenschutz</a><a href="https://check.careersentinel.de/check?lang=de&amp;via=footer">Kostenloser CV-Check</a><a href="partners/">Für Partner</a><a href="mailto:hallo@careersentinel.de">hallo@careersentinel.de</a></div>
     <div class="fine">Ehrlich währt am längsten.</div>
   </footer>
 </div>
