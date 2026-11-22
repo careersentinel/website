@@ -78,11 +78,11 @@
     min-height: 44px; min-width: 44px; padding: 0 6px; text-decoration: none; }
   .made-in .where { padding: 0 8px 0 2px; }
   .made-in a.t:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  /* A phone has room for the logo and the language. The CV check is
-     linked under the hero form. */
-  @media (max-width: 520px) { .made-in .wide, .made-in a.t.wide { display: none; } }
-  /* the CV check link and the language switch need the room on a phone */
-  @media (max-width: 520px) { .made-in .where { display: none; } }
+  /* A phone has room for the logo, the CV check and the language: the
+     link drops its first word there ("CV check"), and the dot and the
+     city go. Most visitors are on phones and the link used to be
+     hidden for them (22 November). */
+  @media (max-width: 520px) { .made-in .wide, .made-in .where { display: none; } }
 
   /* ---------- hero ---------- */
   .hero {
@@ -376,6 +376,9 @@
   /* ---------- final CTA + footer ---------- */
   .final { padding: 88px 0; background: linear-gradient(180deg, var(--night), #003A52); border-top: 1px solid var(--line); }
   .final h2, .final > .wrap > .lede { text-align: center; margin-left: auto; margin-right: auto; }
+  .final > .wrap > .lede { margin-bottom: 14px; }
+  .final-alt { text-align: center; font-size: 14px; color: var(--ink-dim); max-width: 52ch; margin: 0 auto 44px; }
+  .final-alt a { padding: 15px 0; }
   .signup {
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 32px; max-width: 720px; margin: 0 auto;
@@ -448,9 +451,11 @@
     .hero > div:first-child { display: contents; }
     .hero .eyebrow { order: 1; } .hero h1 { order: 2; } .hero .sub { order: 3; }
     .hero form.waitlist { order: 4; } .hero .form-note.consent { order: 5; }
-    .hero .panel { order: 6; margin: 28px 0 0; }
-    .hero .form-note:not(.consent) { order: 7; margin-top: 24px; }
-    .hero .form-note:not(.consent) + .form-note:not(.consent) { margin-top: 24px; }
+    /* the free CV check comes right under the form, before the demo: it
+       was 1,509px down on a 375px phone (22 November) */
+    .hero .form-note.cv { order: 6; margin-top: 16px; }
+    .hero .panel { order: 7; margin: 28px 0 0; }
+    .hero .form-note:not(.consent):not(.cv) { order: 8; margin-top: 24px; }
     .sub { font-size: 17px; margin-bottom: 24px; }
   }
   @media (max-width: 520px) { header { padding: 10px 0; } }
@@ -487,7 +492,7 @@
 <div class="wrap">
   <header>
     <a class="logo" href="#">Career Sentinel<span class="dot">.</span></a>
-    <div class="made-in"><a class="t wide" href="https://check.careersentinel.de/check?lang=de">Kostenloser CV-Check</a><span class="wide" aria-hidden="true">·</span><a class="t" href="../">EN</a><span class="where">· gebaut in Stuttgart</span></div>
+    <div class="made-in"><a class="t" href="https://check.careersentinel.de/check?lang=de&amp;via=header"><span class="wide">Kostenloser </span>CV-Check</a><span class="wide" aria-hidden="true">·</span><a class="t" href="../">EN</a><span class="where">· gebaut in Stuttgart</span></div>
   </header>
 
   <div class="hero">
@@ -509,7 +514,7 @@
         </div>
       </form>
       <p class="form-note">Kostenlos während der Beta. Ich lasse immer nur ein paar Leute auf einmal rein, das kann also dauern. <a href="#profile">Erzähl mir mehr über dich ↓</a> · <a href="../datenschutz.html">Datenschutz</a></p>
-      <p class="form-note">Noch nicht so weit? <a href="https://check.careersentinel.de/check?lang=de">Prüf erst deinen Lebenslauf nach deutschen Regeln</a>. Kostenlos, im Tausch gegen deine E-Mail-Adresse.</p>
+      <p class="form-note cv">Noch nicht so weit? <a href="https://check.careersentinel.de/check?lang=de&amp;via=hero">Prüf erst deinen Lebenslauf nach deutschen Regeln</a>. Das läuft nach festen Regeln, ohne KI, und ich speichere deine Datei nicht. Kostenlos, im Tausch gegen deine E-Mail-Adresse.</p>
       <p class="form-note consent">Mit dem Eintrag in die Warteliste erklärst du dich damit einverstanden, dass wir deine Angaben speichern und dir E-Mails zu Career Sentinel schicken. Du kannst jederzeit mit einem Klick widerrufen.</p>
     </div>
 
@@ -758,6 +763,7 @@
   <div class="wrap">
     <h2>Hol dir deinen ersten Morgenscan</h2>
     <p class="lede">Kostenlos während der Beta. Erzähl mir kurz, wo du stehst, dann passen deine Treffer vom ersten Tag an.</p>
+    <p class="final-alt">Noch nicht so weit? <a href="https://check.careersentinel.de/check?lang=de&amp;via=closing">Prüf erst deinen Lebenslauf nach deutschen Regeln</a>. Kostenlos, im Tausch gegen deine E-Mail-Adresse.</p>
     <form class="signup" action="https://check.careersentinel.de/waitlist" method="POST">
         <input type="hidden" name="lang" value="de">
         <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -833,7 +839,7 @@
 
 <div class="wrap">
   <footer>
-    <div>Career Sentinel<span style="color:var(--accent)">.</span> © 2026 · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> <span style="white-space:nowrap">· <a href="partners/">Für Partner</a></span> <span style="white-space:nowrap">· <a href="mailto:hallo@careersentinel.de">hallo@careersentinel.de</a></span></div>
+    <div>Career Sentinel<span style="color:var(--accent)">.</span> © 2026 · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> <span style="white-space:nowrap">· <a href="https://check.careersentinel.de/check?lang=de&amp;via=footer">Kostenloser CV-Check</a></span> <span style="white-space:nowrap">· <a href="partners/">Für Partner</a></span> <span style="white-space:nowrap">· <a href="mailto:hallo@careersentinel.de">hallo@careersentinel.de</a></span></div>
     <div class="fine">Ehrlich währt am längsten.</div>
   </footer>
 </div>
