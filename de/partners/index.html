@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Sentinel für Partner</title>
+<meta name="description" content="Für Career Services, Welcome Center, Jobcenter und Sprachschulen: Jede Person, die Sie begleiten, bekommt jeden Morgen eine kurze Liste mit Jobs, die zu ihrer Erfahrung und ihrem Deutsch passen.">
+<meta property="og:title" content="Career Sentinel für Partner">
+<meta property="og:description" content="Jede Person, die Sie begleiten, bekommt jeden Morgen eine kurze Liste mit Jobs, die zu ihrer Erfahrung und ihrem Deutsch passen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://careersentinel.de/de/partners/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://careersentinel.de/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://careersentinel.de/de/partners/">
+<link rel="alternate" hreflang="en" href="https://careersentinel.de/partners/">
+<link rel="alternate" hreflang="de" href="https://careersentinel.de/de/partners/">
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+  /* Same palette and type as the landing page (see index.html for why
+     each colour has one job). Motion and depth tokens are this page's own. */
+  :root {
+    --night: #002F43; --night-2: #00253A; --surface: #014865; --surface-2: #01526F; --line: #166F94;
+    --ink: #FFFFFF; --ink-dim: #C0D8E4; --signal: #01648E; --on-signal: #FFFFFF;
+    --accent: #428BAB; --good: #37D67F; --warn: #F2A65A; --reject: #FF9478;
+    --display: "Bricolage Grotesque", Georgia, serif;
+    --body: "Public Sans", -apple-system, Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", Menlo, monospace;
+    --r: 16px; --r-sm: 10px;
+    --shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 18px 40px -18px rgba(0,0,0,0.55);
+    --ease: cubic-bezier(.2,.7,.2,1);
+    --t-fast: 160ms; --t-mid: 280ms; --t-flip: 640ms;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  p, li, .lbl { hyphens: auto; -webkit-hyphens: auto; }
+  body { background: var(--night); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 520px) { .wrap { padding: 0 16px; } }
+  a { color: var(--ink-dim); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--ink); color: var(--night);
+    padding: 10px 14px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+  .skip:focus { top: 12px; }
+  svg.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75;
+    stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- header: sticky, gains a glass bar and a CTA once you scroll ---------- */
+  .top { position: sticky; top: 0; z-index: 50; transition: background var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease); border-bottom: 1px solid transparent; }
+  .top.scrolled { background: rgba(0, 37, 58, 0.82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom-color: rgba(22,111,148,0.6); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px; }
+  .logo { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em;
+    color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; white-space: nowrap; }
+  .logo .dot { color: var(--accent); }
+  .nav { display: flex; align-items: center; gap: 8px; }
+  .nav .lnk { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); display: inline-flex; align-items: center; white-space: nowrap;
+    min-height: 44px; padding: 0 8px; text-decoration: none; }
+  .nav .lnk:hover { color: var(--ink); }
+  .nav .btn-sm { opacity: 0; transform: translateY(-4px); pointer-events: none; visibility: hidden;
+    transition: opacity var(--t-mid) var(--ease), transform var(--t-mid) var(--ease), visibility 0s linear var(--t-mid); }
+  .top.scrolled .nav .btn-sm { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+  @media (max-width: 480px) { .top.scrolled .nav .lnk { display: none; } }
+
+  /* ---------- buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+    background: var(--signal); color: var(--on-signal); text-decoration: none; font: 600 15px var(--body);
+    padding: 13px 22px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 10px 24px -10px rgba(1,100,142,0.9);
+    transition: transform var(--t-fast) var(--ease), filter var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+  .btn:hover { color: var(--on-signal); filter: brightness(1.12); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0) scale(0.98); }
+  .btn .arr { transition: transform var(--t-fast) var(--ease); }
+  .btn:hover .arr { transform: translateX(3px); }
+  .btn.ghost { background: transparent; box-shadow: none; border-color: var(--line); color: var(--ink); }
+  .btn.ghost:hover { background: rgba(255,255,255,0.05); }
+  .btn-sm { min-height: 40px; padding: 8px 14px; font-size: 14px; border-radius: 9px; }
+
+  /* ---------- hero ---------- */
+  .hero-bg { position: relative; }
+  .hero-bg::before { content: ""; position: absolute; inset: -120px 0 0 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(60% 55% at 78% 30%, rgba(66,139,171,0.28), transparent 70%),
+                radial-gradient(40% 40% at 10% 10%, rgba(55,214,127,0.08), transparent 70%); }
+  .hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding: 32px 0 88px; }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 40px; padding: 12px 0 64px; } }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim);
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 12px; background: rgba(1,72,101,0.5); }
+  .eyebrow .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 0 rgba(55,214,127,0.6); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(55,214,127,0.5); } 70% { box-shadow: 0 0 0 8px rgba(55,214,127,0); } 100% { box-shadow: 0 0 0 0 rgba(55,214,127,0); } }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.03;
+    letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 22px; max-width: 17ch; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, #7FC3E0, var(--accent) 60%, #5FD39A);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { font-size: 18px; color: var(--ink-dim); max-width: 50ch; margin-bottom: 30px; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .note { font-size: 14px; color: var(--ink-dim); margin-top: 18px; display: flex; gap: 8px; align-items: flex-start; max-width: 52ch; }
+  .note svg.i { width: 18px; height: 18px; color: var(--good); margin-top: 3px; }
+
+  /* sample app screen: rows open to show the reason */
+  .shot { background: var(--night-2); border: 1px solid var(--line); border-radius: 18px; padding: 14px;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03) inset; margin: 0; position: relative; }
+  .shot-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
+    padding: 0 2px 10px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+  .shot-tag { border: 1px solid var(--line); border-radius: 999px; padding: 0 8px; white-space: nowrap; }
+  .s-h { font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1.15; }
+  .s-sub { font-size: 13px; color: var(--ink-dim); margin: 2px 0 12px; }
+  .s-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .s-big { display: flex; align-items: baseline; gap: 10px; }
+  .s-big b { font: 800 40px/1 var(--display); color: var(--good); }
+  .s-big span { font-weight: 600; }
+  .s-ledger { list-style: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 6px; }
+  .s-ledger li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--ink-dim); }
+  .s-ledger .n { font-family: var(--mono); color: var(--ink); }
+  .s-rows { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .s-row { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+  .s-row:hover { border-color: var(--accent); }
+  .s-row.open { background: var(--surface-2); border-color: var(--accent); }
+  .s-btn { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; min-height: 64px; padding: 10px; }
+  .s-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; border-radius: 12px; }
+  .s-ring { --p: 0; --c: var(--good); flex: none; width: 44px; height: 44px; border-radius: 50%;
+    background: conic-gradient(var(--c) calc(var(--p) * 1%), rgba(255,255,255,0.1) 0); display: grid; place-items: center; }
+  .s-ring b { width: 34px; height: 34px; border-radius: 50%; background: var(--surface); display: grid; place-items: center;
+    color: var(--c); font: 500 13px var(--mono); }
+  .s-ring.w { --c: var(--warn); }
+  .s-rt { display: flex; flex-direction: column; min-width: 0; }
+  .s-title { font-weight: 600; font-size: 14.5px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .s-co { font-size: 12.5px; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .s-verdict { font-size: 12.5px; margin-top: 2px; }
+  .s-good { color: var(--good); } .s-warn { color: var(--warn); }
+  .s-chev { color: var(--ink-dim); display: grid; place-items: center; transition: transform var(--t-mid) var(--ease); }
+  .s-chev svg.i { width: 18px; height: 18px; }
+  .s-row.open .s-chev { transform: rotate(90deg); }
+  .s-why { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--t-mid) var(--ease); }
+  .s-row.open .s-why { grid-template-rows: 1fr; }
+  .s-why > div { overflow: hidden; }
+  .s-why p { font-size: 13.5px; color: var(--ink-dim); padding: 0 12px 12px 64px; }
+  .s-why p b { color: var(--ink); font-weight: 600; }
+  html:not(.js) .s-why { grid-template-rows: 1fr; }
+  .s-hint { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); margin-top: 10px; text-align: center; }
+
+  /* ---------- sections ---------- */
+  section { padding: 96px 0; border-top: 1px solid rgba(22,111,148,0.55); }
+  @media (max-width: 720px) { section { padding: 64px 0; } }
+  .kicker { font-family: var(--mono); font-size: 12px; color: var(--good); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  h2 { font-family: var(--display); font-weight: 800; font-size: clamp(28px, 3.9vw, 42px); letter-spacing: -0.025em;
+    line-height: 1.08; text-wrap: balance; margin-bottom: 14px; max-width: 22ch; }
+  .lede { color: var(--ink-dim); max-width: 58ch; margin-bottom: 44px; font-size: 17px; }
+
+  /* problem + numbers */
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .proof-grid { grid-template-columns: 1fr; } }
+  .stat { background: linear-gradient(180deg, rgba(1,82,111,0.55), rgba(1,72,101,0.25)); border: 1px solid var(--line);
+    border-radius: var(--r); padding: 26px 24px; box-shadow: var(--shadow); }
+  .num { font-family: var(--display); font-weight: 800; font-size: clamp(42px, 5vw, 56px); line-height: 1; letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums; }
+  .num small { font-size: 0.55em; letter-spacing: -0.01em; }
+  .lbl { color: var(--ink-dim); margin-top: 10px; max-width: 30ch; }
+  .src { font-size: 12px; color: var(--ink-dim); margin-top: 20px; font-family: var(--mono); }
+
+  /* ---------- flip cards ----------
+     Both faces share one grid cell, so the card is as tall as its longer
+     face and nothing is clipped. Without JS both faces simply stack. */
+  .flips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .flips { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .flips { grid-template-columns: 1fr; } }
+  .flip { perspective: 1400px; }
+  .flip-inner { display: grid; height: 100%; }
+  .face { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px;
+    box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; }
+  .face h3 { font-family: var(--display); font-weight: 700; font-size: 20px; line-height: 1.2; }
+  .face p { color: var(--ink-dim); font-size: 15px; }
+  .face .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+    background: rgba(66,139,171,0.18); color: #9ED0E6; border: 1px solid rgba(66,139,171,0.35); margin-bottom: 4px; }
+  .face.back { background: linear-gradient(160deg, var(--surface-2), #013D57); border-color: var(--accent); }
+  .face.back .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--good); }
+  .flip-btn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+    padding: 0 2px; background: none; border: 0; color: var(--ink); font: 600 14px var(--body); cursor: pointer; }
+  .flip-btn svg.i { width: 18px; height: 18px; transition: transform var(--t-mid) var(--ease); }
+  .flip-btn:hover svg.i { transform: rotate(-30deg); }
+  html:not(.js) .flip-btn { display: none; }
+  html:not(.js) .flip-inner { gap: 8px; }
+  .js .face { grid-area: 1 / 1; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+  .js .flip { cursor: pointer; }
+  .js .flip-inner { transform-style: preserve-3d; transition: transform var(--t-flip) var(--ease); }
+  .js .face.back { transform: rotateY(180deg); }
+  .js .flip.on .flip-inner { transform: rotateY(180deg); }
+  .js .flip:not(.on):hover .face.front { border-color: var(--accent); }
+  @media (hover: hover) { .js .flip:hover .flip-inner { translate: 0 -2px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .js .flip-inner { transform: none !important; transition: none; }
+    .js .face { transition: opacity 200ms linear; }
+    .js .face.back { transform: none; opacity: 0; visibility: hidden; }
+    .js .flip.on .face.back { opacity: 1; visibility: visible; }
+    .js .flip.on .face.front { opacity: 0; visibility: hidden; }
+    .eyebrow .pulse { animation: none; }
+  }
+
+  /* team benefits */
+  .bens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .bens { grid-template-columns: 1fr; } }
+  .ben { border-left: 2px solid var(--accent); padding: 4px 0 4px 20px; }
+  .ben h3 { font-family: var(--display); font-weight: 700; font-size: 20px; margin-bottom: 6px; display: flex; gap: 10px; align-items: center; }
+  .ben h3 svg.i { color: var(--good); }
+  .ben p { color: var(--ink-dim); font-size: 15px; }
+
+  /* ---------- audience tabs ---------- */
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tab { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--ink-dim); font: 600 14px var(--body); cursor: pointer;
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+  .tab svg.i { width: 18px; height: 18px; }
+  .tab:hover { color: var(--ink); border-color: var(--accent); }
+  .tab[aria-selected="true"] { background: var(--ink); color: var(--night); border-color: var(--ink); }
+  html:not(.js) .tabs { display: none; }
+  .panel { background: linear-gradient(160deg, var(--surface), #013A52); border: 1px solid var(--line); border-radius: 20px;
+    padding: 32px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; }
+  .panel[hidden] { display: none; }
+  html:not(.js) .panel[hidden] { display: grid; }
+  html:not(.js) .panel + .panel { margin-top: 16px; }
+  @media (max-width: 820px) { .panel { grid-template-columns: 1fr; padding: 24px; gap: 24px; } }
+  .panel h3 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 16px; }
+  .panel ul { list-style: none; display: grid; gap: 12px; }
+  .panel li { display: flex; gap: 12px; color: var(--ink-dim); }
+  .panel li svg.i { color: var(--good); width: 20px; height: 20px; margin-top: 3px; }
+  .pilot-idea { background: rgba(0,37,58,0.6); border: 1px dashed var(--line); border-radius: 14px; padding: 20px; align-self: start; }
+  .pilot-idea .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--good); margin-bottom: 8px; }
+  .pilot-idea p { color: var(--ink); }
+  .js .panel.in { animation: panelIn var(--t-mid) var(--ease); }
+  @keyframes panelIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .js .panel.in { animation: none; } }
+
+  /* ---------- pilot timeline ---------- */
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .steps li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); position: relative; }
+  .steps .n { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font: 600 14px var(--mono);
+    background: var(--night); border: 1px solid var(--accent); color: var(--good); margin-bottom: 14px; }
+  .steps li.key { border-color: var(--good); background: linear-gradient(160deg, #01566F, var(--surface)); }
+  .steps h3 { font-family: var(--display); font-weight: 700; font-size: 19px; margin-bottom: 6px; }
+  .steps p { color: var(--ink-dim); font-size: 15px; }
+  .steps .when { font-family: var(--mono); font-size: 11.5px; color: var(--ink-dim); margin-top: 12px; letter-spacing: 0.03em; }
+
+  /* ---------- data protection ---------- */
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .facts { grid-template-columns: 1fr; } }
+  .fact { display: flex; gap: 16px; background: rgba(1,72,101,0.45); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+  .fact .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; flex: none;
+    background: rgba(55,214,127,0.12); color: var(--good); border: 1px solid rgba(55,214,127,0.3); }
+  .fact h3 { font-family: var(--display); font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+  .fact p { color: var(--ink-dim); font-size: 15px; }
+  .after { font-size: 14px; color: var(--ink-dim); margin-top: 24px; }
+  .after a { display: inline-block; padding: 12px 0; }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 76ch; display: grid; gap: 10px; }
+  details { background: rgba(1,72,101,0.45); border: 1px solid var(--line); border-radius: 14px; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+  details[open] { border-color: var(--accent); background: var(--surface); }
+  summary { cursor: pointer; padding: 16px 20px; font-weight: 600; min-height: 56px; list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary .pm { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center;
+    transition: transform var(--t-mid) var(--ease), background var(--t-fast) var(--ease); }
+  summary .pm svg.i { width: 16px; height: 16px; }
+  details[open] summary .pm { transform: rotate(45deg); background: var(--ink); color: var(--night); border-color: var(--ink); }
+  details p { color: var(--ink-dim); padding: 0 20px 18px; }
+  details[open] p { animation: panelIn var(--t-mid) var(--ease); }
+  @media (prefers-reduced-motion: reduce) { details[open] p { animation: none; } }
+
+  /* ---------- closing ---------- */
+  .end-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; padding: 48px;
+    background: radial-gradient(70% 90% at 100% 0%, rgba(66,139,171,0.35), transparent 60%), linear-gradient(160deg, var(--surface), var(--night-2)); }
+  @media (max-width: 600px) { .end-card { padding: 28px 22px; } }
+  .end-card p { color: var(--ink-dim); max-width: 56ch; margin-bottom: 28px; font-size: 17px; }
+  .addr { font-size: 14px; color: var(--ink-dim); }
+  .addr a { font-family: var(--mono); color: var(--ink); display: inline-block; padding: 12px 0; }
+
+  footer { border-top: 1px solid rgba(22,111,148,0.55); padding: 28px 0 48px; font-size: 13px; color: var(--ink-dim);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 96px; }
+  footer a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
+
+  /* ---------- scroll reveal (only with JS and full motion) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+    .js .reveal.seen { opacity: 1; transform: none; }
+  }
+</style>
+<script>
+(function () {
+  if (location.hostname.endsWith("careersentinel.de")) {
+    var s = document.createElement("script");
+    s.defer = true; s.src = "/_vercel/insights/script.js";
+    document.head.appendChild(s);
+  }
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c1 4 3.5 7 7 8.5M11 5c-1 4-3.5 7-7 8.5"/><path d="M13 21l4-9 4 9M14.5 18h5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><path d="M12 7v3.5M12 13h.01"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></symbol>
+  <symbol id="i-flip" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-eu" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+  <symbol id="i-uni" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></symbol>
+</svg>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="../">Career Sentinel<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Website">
+      <a class="lnk" href="../">Für Jobsuchende</a>
+      <a class="lnk" href="../../partners/" hreflang="en" lang="en">EN</a>
+      <a class="btn btn-sm" href="mailto:sales@careersentinel.de?subject=Career%20Sentinel%20Pilot" tabindex="-1" aria-hidden="true" id="topcta">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero-bg">
+ <div class="wrap">
+  <div class="hero">
+   <div>
+    <div class="eyebrow"><span class="pulse" aria-hidden="true"></span>Für Career Services, Welcome Center und Jobcenter</div>
+    <h1>Jobs, die Ihre Leute <em>realistisch bekommen.</em></h1>
+    <p class="sub">Jeden Morgen liest Career Sentinel die neuen Stellenanzeigen in Deutschland und schickt jeder Person eine kurze Liste, die zu ihrer Erfahrung und ihrem Deutsch passt. So starten Ihre Termine mit echten Optionen.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:sales@careersentinel.de?subject=Career%20Sentinel%20Pilot">Pilot anfragen <svg class="i arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn ghost" href="#pilot">So läuft ein Pilot</a>
+    </div>
+    <p class="note"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Kleine Gruppe, fester Preis, vorher mit Ihnen vereinbart. Für die Teilnehmenden ist es kostenlos.</span></p>
+   </div>
+
+   <figure class="shot reveal" aria-label="Beispiel: die Morgenliste einer Person in der App, mit Beispieldaten. Die App ist auf Englisch.">
+    <div class="shot-bar"><span>Was jede Person sieht (App auf Englisch)</span><span class="shot-tag">Beispieldaten</span></div>
+    <div lang="en">
+      <p class="s-h">Your matches</p>
+      <p class="s-sub">Customer success · Stuttgart, 50 km · last scan 07:12</p>
+      <div class="s-card">
+        <p class="s-big"><b>3</b><span>worth your evening</span></p>
+        <ul class="s-ledger">
+          <li><span>Jobs checked</span><span class="n">100</span></li>
+          <li><span>Needed more German than A2</span><span class="n">41</span></li>
+          <li><span>Under your 65% bar</span><span class="n">56</span></li>
+        </ul>
+      </div>
+      <div class="s-rows">
+        <div class="s-row open">
+          <button class="s-btn" type="button" aria-expanded="true" aria-controls="why1">
+            <span class="s-ring" style="--p:84" aria-hidden="true"><b>84</b></span>
+            <span class="s-rt"><span class="s-title">Customer Success Manager (m/w/d)</span><span class="s-co">Muster Software GmbH · Stuttgart</span><span class="s-verdict s-good">84% · Worth your evening</span></span>
+            <span class="s-chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span>
+          </button>
+          <div class="s-why" id="why1"><div><p><b>Why:</b> your three years in customer success match the role. The team works in English, and A2 covers the small talk.</p></div></div>
+        </div>
+        <div class="s-row">
+          <button class="s-btn" type="button" aria-expanded="false" aria-controls="why2">
+            <span class="s-ring w" style="--p:77" aria-hidden="true"><b>77</b></span>
+            <span class="s-rt"><span class="s-title">Onboarding Specialist, English</span><span class="s-co">Probe Cloud GmbH · Remote</span><span class="s-verdict s-warn">77% · Check the German first</span></span>
+            <span class="s-chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span>
+          </button>
+          <div class="s-why" id="why2"><div><p><b>Why:</b> strong fit on experience. The ad asks for "good German" without a level, so it can't tell. Worth a quick question before you apply.</p></div></div>
+        </div>
+        <div class="s-row">
+          <button class="s-btn" type="button" aria-expanded="false" aria-controls="why3">
+            <span class="s-ring w" style="--p:69" aria-hidden="true"><b>69</b></span>
+            <span class="s-rt"><span class="s-title">Support Team Lead</span><span class="s-co">Testhafen Logistik GmbH · Hamburg</span><span class="s-verdict s-warn">69% · You'd have to move</span></span>
+            <span class="s-chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span>
+          </button>
+          <div class="s-why" id="why3"><div><p><b>Why:</b> a good match, but it's in Hamburg, outside your 50 km.</p></div></div>
+        </div>
+      </div>
+      <p class="s-hint">Tap a job to see why</p>
+    </div>
+   </figure>
+  </div>
+ </div>
+</div>
+
+<div class="wrap">
+  <section aria-labelledby="h-problem">
+    <p class="kicker">Das Problem</p>
+    <h2 id="h-problem">Die meisten Anzeigen, die Deutsch verlangen, sagen nicht, wie viel.</h2>
+    <p class="lede">Also bewerben sich Menschen auf Stellen, bei denen sie vielleicht keine Chance haben. Sie bekommen keine Antwort und verlieren die Motivation. Und in Ihren Terminen geht manchmal Zeit für diese Sackgassen verloren. Career Sentinel liest die Anforderungen für die Jobsuchenden, in Anzeigen aus ganz Deutschland.</p>
+    <div class="proof-grid">
+      <div class="stat reveal"><div class="num">1 <small>Million</small></div><div class="lbl">Stellenanzeigen in ganz Deutschland, jeden Morgen durchsucht</div></div>
+      <div class="stat reveal"><div class="num">1.800+</div><div class="lbl">Karriereseiten von Unternehmen dazu, nicht nur Jobbörsen</div></div>
+      <div class="stat reveal"><div class="num">100</div><div class="lbl">Anzeigen pro Person jeden Morgen bewertet, die vielversprechenden zweimal</div></div>
+    </div>
+    <p class="src">Stand: 22. November 2026.</p>
+  </section>
+
+  <section aria-labelledby="h-gets">
+    <p class="kicker">Heute schon live</p>
+    <h2 id="h-gets">Was jede Person bekommt</h2>
+    <p class="lede">Die Leute melden sich auf der Website an, laden einmal ihren Lebenslauf hoch und geben ihr Deutschniveau an. Tippen Sie auf eine Karte für die Details.</p>
+    <div class="flips">
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-list"/></svg></span>
+            <h3>Jeden Morgen eine kurze Liste</h3>
+            <p>Per E-Mail oder Telegram. Jeder Job hat eine Bewertung und den Grund dafür.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb1">Mehr <span class="sr-only">zur Morgenliste</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb1">
+            <span class="tag">So funktioniert es</span>
+            <h3>Nur die wenigen, bei denen sich eine Bewerbung lohnt</h3>
+            <p>Jeden Morgen gleicht es die neuen Anzeigen mit dem eigenen Lebenslauf ab und schickt die wenigen, die passen. Jeder Job bekommt eine Bewertung von 0 bis 100 und eine kurze Begründung. An einem ruhigen Tag sagt es das, statt die Liste aufzufüllen.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-lang"/></svg></span>
+            <h3>Das Deutsch, das der Job wirklich braucht</h3>
+            <p>Auf der Skala von A1 bis C2, neben dem eigenen Niveau.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb2">Mehr <span class="sr-only">zum Deutsch-Check</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb2">
+            <span class="tag">So funktioniert es</span>
+            <h3>Es liest zwischen den Zeilen</h3>
+            <p>Formulierungen wie „sehr gute Deutschkenntnisse“ werden auf der Skala von A1 bis C2 eingeordnet und neben dem eigenen Niveau gezeigt. Wenn die Anzeige nichts dazu sagt, sagt es das auch, statt zu raten.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>
+            <h3>Versteckte Auslandsjobs markiert</h3>
+            <p>Jobs „für den deutschen Markt“, die eigentlich in einem anderen Land sitzen, bekommen eine Warnung.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb3">Mehr <span class="sr-only">zu versteckten Auslandsjobs</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb3">
+            <span class="tag">So funktioniert es</span>
+            <h3>In Deutschland gelistet, woanders angesiedelt</h3>
+            <p>Manche Anzeigen tauchen in deutschen Jobsuchen auf, aber das Team sitzt in einem anderen Land. Wenn die Anzeige das verrät, bekommt der Job eine klare Warnung. So plant niemand mit einem Job, der ganz woanders liegt.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-doc"/></svg></span>
+            <h3>Lebenslauf und Anschreiben pro Job</h3>
+            <p>Nur aus Fakten im eigenen Lebenslauf. Senden kann nur die Person selbst.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb4">Mehr <span class="sr-only">zu Lebenslauf und Anschreiben</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb4">
+            <span class="tag">So funktioniert es</span>
+            <h3>Angepasst, nie erfunden</h3>
+            <p>Für einen Job auf ihrer Liste bekommen sie auf Wunsch einen Lebenslauf und ein Anschreiben für genau diese Stelle. Es nutzt nur, was im eigenen Lebenslauf steht, und schickt nie etwas ab. Die Person liest es, ändert es und entscheidet.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-cap"/></svg></span>
+            <h3>Ein Werkstudenten-Modus</h3>
+            <p>Studierende können die Suche auf Studentenjobs umstellen.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb5">Mehr <span class="sr-only">zum Werkstudenten-Modus</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb5">
+            <span class="tag">So funktioniert es</span>
+            <h3>Für Studium und Job</h3>
+            <p>Studierende können in den Werkstudenten-Modus wechseln. Dann sucht es nach Werkstudentenstellen statt nach Vollzeitjobs. Praktika, die eine Immatrikulation verlangen, sehen nur Studierende.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="face front">
+            <span class="ico" aria-hidden="true"><svg class="i"><use href="#i-check"/></svg></span>
+            <h3>Ein kostenloser CV-Check</h3>
+            <p>Der Lebenslauf, abgeglichen mit dem, was deutsche Arbeitgeber erwarten.</p>
+            <button class="flip-btn" type="button" aria-expanded="false" aria-controls="fb6">Mehr <span class="sr-only">zum CV-Check</span><svg class="i" aria-hidden="true"><use href="#i-flip"/></svg></button>
+          </div>
+          <div class="face back" id="fb6">
+            <span class="tag">So funktioniert es</span>
+            <h3>Konkrete Tipps, keine Note</h3>
+            <p>Ein Lebenslauf, der im Ausland funktioniert, verfehlt oft, worauf deutsche Arbeitgeber achten. Der Check sagt in einfachen Worten, was man ändern sollte. So startet die nächste Bewerbung stärker.</p>
+            <button class="flip-btn" type="button">Zurück <svg class="i" aria-hidden="true"><use href="#i-back"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-team">
+    <p class="kicker">Für Ihr Team</p>
+    <h2 id="h-team">Was es für Ihr Team bedeutet</h2>
+    <p class="lede">Ihre Beraterinnen und Berater führen weiter die Gespräche. Die Suche passiert vor dem Termin.</p>
+    <div class="bens">
+      <div class="ben reveal"><h3><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Weniger Zeit fürs Suchen</h3><p>Die tägliche Suche und der erste Filter passieren vor dem Termin. So bleibt die Zeit im Termin für die Person.</p></div>
+      <div class="ben reveal"><h3><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Nichts zu installieren</h3><p>Die Leute melden sich auf der Website an und bekommen ihre Liste aufs Handy. Kein IT-Projekt, keine Anbindung nötig.</p></div>
+      <div class="ben reveal"><h3><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Die Daten bleiben bei den Menschen</h3><p>Standardmäßig bekommen Sie keine personenbezogenen Daten von uns, und wir keine von Ihnen. Wenn Sie möchten, teilen wir am Ende eines Pilots anonyme Gesamtzahlen.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-who">
+    <p class="kicker">Für wen es ist</p>
+    <h2 id="h-who">Für die Menschen, die Jobsuchenden helfen</h2>
+    <p class="lede">Career Sentinel ist für alle, die in Deutschland einen Job suchen. Am meisten hilft es, wenn Deutsch nicht die Erstsprache ist.</p>
+    <div class="tabs" role="tablist" aria-label="Art des Partners">
+      <button class="tab" role="tab" id="t-uni" aria-controls="p-uni" aria-selected="true"><svg class="i" aria-hidden="true"><use href="#i-uni"/></svg>Career Services</button>
+      <button class="tab" role="tab" id="t-wc" aria-controls="p-wc" aria-selected="false" tabindex="-1"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Welcome Center</button>
+      <button class="tab" role="tab" id="t-ba" aria-controls="p-ba" aria-selected="false" tabindex="-1"><svg class="i" aria-hidden="true"><use href="#i-brief"/></svg>Arbeitsvermittlung</button>
+      <button class="tab" role="tab" id="t-ls" aria-controls="p-ls" aria-selected="false" tabindex="-1"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Sprachschulen</button>
+    </div>
+    <div class="panel" role="tabpanel" id="p-uni" aria-labelledby="t-uni" tabindex="0">
+      <div>
+        <h3>Career Services und International Offices</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Absolventinnen und Absolventen sowie internationale Studierende sehen die Jobs, für die ihr Deutsch wirklich reicht.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Ein Werkstudenten-Modus während des Studiums.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Ein Lebenslauf, abgeglichen mit deutschen Erwartungen, bevor sie sich bewerben.</span></li>
+        </ul>
+      </div>
+      <div class="pilot-idea"><p class="tag">Ein möglicher Pilot</p><p>Ein Abschlussjahrgang oder die Studierenden eines Karriereprogramms.</p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-wc" aria-labelledby="t-wc" tabindex="0" hidden>
+      <div>
+        <h3>Welcome Center und Wirtschaftsförderung</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Neu Zugezogene sehen schneller die Jobs, die sie in Ihrer Region realistisch bekommen können.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Jeder Job zeigt das nötige Deutsch neben dem eigenen Niveau.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Jobs, die eigentlich im Ausland sitzen, werden markiert.</span></li>
+        </ul>
+      </div>
+      <div class="pilot-idea"><p class="tag">Ein möglicher Pilot</p><p>Neu Zugezogene, die in den letzten Monaten in Ihrer Beratung waren.</p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ba" aria-labelledby="t-ba" tabindex="0" hidden>
+      <div>
+        <h3>Teams in der Arbeitsvermittlung</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Eine tägliche Auswahl pro Person, die schon zum Deutschniveau passt.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Gespräche starten mit echten Optionen, nicht mit einer leeren Suche.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Die Menschen behalten die Kontrolle. Es bewirbt sich nie für sie.</span></li>
+        </ul>
+      </div>
+      <div class="pilot-idea"><p class="tag">Ein möglicher Pilot</p><p>Ein Team und eine Gruppe von Menschen, die bereit für Bewerbungen sind.</p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ls" aria-labelledby="t-ls" tabindex="0" hidden>
+      <div>
+        <h3>Integrationskurse und Sprachschulen</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Lernende sehen, wie viel Deutsch jeder Job braucht, neben ihrem eigenen Niveau.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>So sehen sie, wofür sich das nächste Niveau lohnt.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg><span>Am Ende des Kurses eine echte Jobliste, nicht nur ein Zertifikat.</span></li>
+        </ul>
+      </div>
+      <div class="pilot-idea"><p class="tag">Ein möglicher Pilot</p><p>Ein B1- oder B2-Kurs in seinen letzten Wochen.</p></div>
+    </div>
+  </section>
+
+  <section id="pilot" aria-labelledby="h-pilot">
+    <p class="kicker">So läuft ein Pilot</p>
+    <h2 id="h-pilot">Vier Schritte und am Ende ein klares Ja oder Nein</h2>
+    <p class="lede">Wir vereinbaren alles vorher. So wissen Sie, was Sie bekommen und wann Sie entscheiden.</p>
+    <ol class="steps">
+      <li class="reveal"><span class="n" aria-hidden="true">1</span><h3>Ein Gespräch von 30 Minuten</h3><p>Sie erzählen uns, wie Ihre Leute heute suchen und wo sie hängen bleiben.</p><p class="when">Woche 0</p></li>
+      <li class="reveal"><span class="n" aria-hidden="true">2</span><h3>Eine Demo</h3><p>Eine Morgenliste, ein Job mit Deutsch-Check, ein Lebenslauf und ein Anschreiben. Nur mit Beispieldaten.</p><p class="when">Woche 0</p></li>
+      <li class="reveal key"><span class="n" aria-hidden="true">3</span><h3>Der Pilot</h3><p>Eine kleine Gruppe für ein paar Wochen. Preis, Größe, Dauer und zwei oder drei Erfolgskriterien vereinbaren wir vorher mit Ihnen.</p><p class="when">Ein paar Wochen</p></li>
+      <li class="reveal"><span class="n" aria-hidden="true">4</span><h3>Gemeinsamer Rückblick</h3><p>Wir gehen die Kriterien und das Feedback durch. Dann entscheiden Sie, an einem Datum, das wir zu Beginn festlegen.</p><p class="when">Ende des Pilots</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-data">
+    <p class="kicker">Datenschutz</p>
+    <h2 id="h-data">Datenschutz, kurz gesagt</h2>
+    <p class="lede">Gebaut in Deutschland, nach der DSGVO, nur für die Jobsuchenden.</p>
+    <div class="facts">
+      <div class="fact reveal"><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-eu"/></svg></span><div><h3>Gehostet in der EU</h3><p>Die App und ihre Datenbank laufen in der EU, mit einem nächtlichen Backup in Deutschland.</p></div></div>
+      <div class="fact reveal"><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-shield"/></svg></span><div><h3>Ein KI-Anbieter, unter Vertrag</h3><p>Lebenslauftexte werden mit einem Auftragsverarbeitungsvertrag verarbeitet und nicht zum Training von KI-Modellen genutzt.</p></div></div>
+      <div class="fact reveal"><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-trash"/></svg></span><div><h3>Alles löschen, jederzeit</h3><p>Jede Person kann ihr Konto und alle ihre Daten in den Einstellungen löschen.</p></div></div>
+      <div class="fact reveal"><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-user"/></svg></span><div><h3>Nur für die Jobsuchenden</h3><p>Es bewertet nie Bewerbende für Arbeitgeber und bewirbt sich nie im Namen anderer.</p></div></div>
+    </div>
+    <p class="after">Alle Details stehen in der <a href="https://app.careersentinel.de/datenschutz">Datenschutzerklärung der App</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <p class="kicker">FAQ</p>
+    <h2 id="h-faq">Was Partner uns fragen</h2>
+    <div class="faq">
+      <details><summary>Was kostet ein Pilot?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Wir vereinbaren vorher einen festen Preis mit Ihnen. Er hängt von der Größe der Gruppe und der Dauer ab. Für die Menschen, die Sie begleiten, ist es kostenlos.</p></details>
+      <details><summary>Ersetzt es unsere Beraterinnen und Berater?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Nein. Es übernimmt die Suche und den ersten Filter. So hat Ihr Team mehr Zeit für Gespräche.</p></details>
+      <details><summary>Berät es zu Visum und Aufenthalt?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Nein. Es markiert Fakten aus der Anzeige, zum Beispiel einen Job, der eigentlich im Ausland sitzt. Fragen zu Visum und Aufenthalt sind bei der Ausländerbehörde oder einer Migrationsberatung richtig aufgehoben.</p></details>
+      <details><summary>Ist es nur für Menschen aus dem Ausland?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Nein, es ist für alle, die in Deutschland einen Job suchen. Der Deutsch-Check hilft am meisten, wenn Deutsch nicht die Erstsprache ist.</p></details>
+      <details><summary>Woher kommen die Jobs?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Aus öffentlichen Jobdatenbanken und über 1.800 Karriereseiten von Unternehmen in ganz Deutschland, jeden Morgen neu durchsucht. Nur aus Quellen, die das erlauben.</p></details>
+      <details><summary>Ist die App auf Deutsch?<span class="pm" aria-hidden="true"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Bisher nicht. Die App und die Morgenliste sind auf Englisch. Den CV-Check gibt es auch auf Deutsch.</p></details>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-talk" style="border-top:0;padding-bottom:0">
+    <div class="end-card reveal">
+      <h2 id="h-talk">Lassen Sie uns sprechen</h2>
+      <p>Ich bin Maher. Ich habe Career Sentinel in Stuttgart für meine eigene Jobsuche gebaut. Jetzt möchte ich, dass die Menschen, die Jobsuchenden jeden Tag helfen, es ausprobieren. Schreiben Sie mir, dann vereinbaren wir ein Gespräch von 30 Minuten.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:sales@careersentinel.de?subject=Career%20Sentinel%20Pilot">Pilot anfragen <svg class="i arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <span class="addr">oder schreiben Sie an <a href="mailto:sales@careersentinel.de">sales@careersentinel.de</a></span>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<div class="wrap">
+  <footer>
+    <div>Career Sentinel<span style="color:var(--accent)">.</span> © 2026 · <a href="../../impressum.html">Impressum</a> · <a href="../../datenschutz.html">Datenschutz</a> <span style="white-space:nowrap">· <a href="mailto:hallo@careersentinel.de">hallo@careersentinel.de</a></span></div>
+    <div>Ehrlich währt am längsten.</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* sticky header: glass bar and CTA after the hero */
+  var top = document.getElementById("top"), cta = document.getElementById("topcta");
+  function onScroll() {
+    var on = window.scrollY > 420;
+    top.classList.toggle("scrolled", on);
+    cta.tabIndex = on ? 0 : -1;
+    if (on) cta.removeAttribute("aria-hidden"); else cta.setAttribute("aria-hidden", "true");
+  }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  /* sample list: each row opens its reason */
+  document.querySelectorAll(".s-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var row = b.closest(".s-row"), open = !row.classList.contains("open");
+      row.classList.toggle("open", open);
+      b.setAttribute("aria-expanded", open);
+    });
+  });
+
+  /* flip cards: the whole card is the target, the buttons carry state and focus */
+  document.querySelectorAll(".flip").forEach(function (card) {
+    var front = card.querySelector(".front"), back = card.querySelector(".back");
+    var more = front.querySelector(".flip-btn"), less = back.querySelector(".flip-btn");
+    back.inert = true;
+    function set(on, focus) {
+      card.classList.toggle("on", on);
+      more.setAttribute("aria-expanded", on);
+      front.inert = on; back.inert = !on;
+      if (focus) (on ? less : more).focus({ preventScroll: true });
+    }
+    card.addEventListener("click", function (e) {
+      if (window.getSelection && String(window.getSelection()).length) return;
+      var viaKey = e.detail === 0;
+      set(!card.classList.contains("on"), viaKey);
+    });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && card.classList.contains("on")) set(false, true);
+    });
+  });
+
+  /* audience tabs, with arrow keys */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t, p = document.getElementById(x.getAttribute("aria-controls"));
+      x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1;
+      p.hidden = !on;
+      if (on) { p.classList.remove("in"); void p.offsetWidth; p.classList.add("in"); }
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { select(t); });
+    t.addEventListener("keydown", function (e) {
+      var j = null;
+      if (e.key === "ArrowRight") j = (i + 1) % tabs.length;
+      if (e.key === "ArrowLeft") j = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === "Home") j = 0;
+      if (e.key === "End") j = tabs.length - 1;
+      if (j !== null) { e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+
+  /* reveal on scroll */
+  if ("IntersectionObserver" in window && !reduced) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("seen");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach(function (el, i) {
+      el.style.transitionDelay = (i % 3) * 70 + "ms";
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("seen"); });
+  }
+})();
+</script>
+</body>
+</html>
