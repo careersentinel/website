@@ -22,4 +22,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/partners/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/partners/"/>
   </url>
+  <url>
+    <loc>https://careersentinel.de/german-cv-rules/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/german-cv-rules/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/lebenslauf-regeln/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://careersentinel.de/german-cv-rules/"/>
+  </url>
+  <url>
+    <loc>https://careersentinel.de/de/lebenslauf-regeln/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/german-cv-rules/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/lebenslauf-regeln/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://careersentinel.de/german-cv-rules/"/>
+  </url>
 </urlset>
