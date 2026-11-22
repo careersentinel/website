@@ -14,11 +14,13 @@
 <link rel="canonical" href="https://careersentinel.de/">
 <link rel="stylesheet" href="fonts/fonts.css">
 <!-- The four fonts the first screen uses, fetched at once and not after the
-     stylesheet: the text used to jump when they arrived (desktop CLS 0.06 to 0.16). -->
-<link rel="preload" href="fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+     stylesheet: on a wide screen the two-column hero jumped when they arrived
+     (desktop CLS 0.06 to 0.16, now 0). Wide screens only: on a phone nothing
+     jumped, and the preload made the lab LCP slower (1.05s to 1.66s). -->
+<link rel="preload" href="fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" media="(min-width: 861px)" crossorigin>
+<link rel="preload" href="fonts/public-sans-latin.woff2" as="font" type="font/woff2" media="(min-width: 861px)" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" media="(min-width: 861px)" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" media="(min-width: 861px)" crossorigin>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -380,6 +382,16 @@
   .founder .sig { font-family: var(--mono); font-size: 13px; color: var(--ink-dim); margin-top: 14px; }
 
   /* ---------- final CTA + footer ---------- */
+  /* ---------- fair questions ---------- */
+  /* The doubts a careful visitor has before giving an email address or a
+     CV: answered in a few plain sentences each, always visible. */
+  .faq { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+  .faq > div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+  .faq > div:first-child { grid-column: 1 / -1; }
+  @media (max-width: 760px) { .faq { grid-template-columns: 1fr; } }
+  .faq dt { font-weight: 600; font-size: 17px; margin-bottom: 8px; }
+  .faq dd { color: var(--ink-dim); font-size: 15px; max-width: 78ch; }
+  .faq dd a { padding: 15px 0; }
   .final { padding: 88px 0; background: linear-gradient(180deg, var(--night), #003A52); border-top: 1px solid var(--line); }
   .final h2, .final > .wrap > .lede { text-align: center; margin-left: auto; margin-right: auto; }
   .final > .wrap > .lede { margin-bottom: 14px; }
@@ -765,6 +777,32 @@
         <p>I'm Maher, an international in Stuttgart with A2 German. Job boards showed me thousands of jobs I could never get and buried the ones I could. So I built the filter I needed. Now I'm sharing it with others.</p>
       </div>
     </div>
+  </section>
+
+  <section style="padding-top:0">
+    <h2>Fair questions</h2>
+    <dl class="faq">
+      <div class="rv">
+        <dt>Is my CV safe?</dt>
+        <dd>The free CV check runs on fixed rules. No AI reads your file, and I don't keep it. In the app, your file isn't stored either. The text is read once, then the file is gone. What I keep sits on servers in the EU. To score jobs and write your documents, that text goes to one AI provider in the USA, under a data processing agreement. Nobody trains an AI on it. One click in Settings deletes everything. <a href="datenschutz.html">Privacy policy</a></dd>
+      </div>
+      <div class="rv">
+        <dt>Where do the jobs come from?</dt>
+        <dd>From public job databases and from companies' own career pages. Career Sentinel checks them again every morning.</dd>
+      </div>
+      <div class="rv">
+        <dt>Does it apply for me?</dt>
+        <dd>No. You always press send. When you ask, Career Sentinel writes a CV and cover letter for one job, using only facts from your own CV. Sending them is your call.</dd>
+      </div>
+      <div class="rv">
+        <dt>What does it cost?</dt>
+        <dd>It's free while in beta, for people accepted into the beta.</dd>
+      </div>
+      <div class="rv">
+        <dt>When do I get in?</dt>
+        <dd>I let people in a few at a time, so I can't promise a date. If I can offer you a place, I email you. Meanwhile, the <a href="https://check.careersentinel.de/check?lang=en&amp;via=faq">free CV check</a> is open to everyone.</dd>
+      </div>
+    </dl>
   </section>
 </div>
 
