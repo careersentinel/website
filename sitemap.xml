@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://careersentinel.de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://careersentinel.de/"/>
+  </url>
+  <url>
+    <loc>https://careersentinel.de/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://careersentinel.de/"/>
+  </url>
+  <url>
+    <loc>https://careersentinel.de/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/partners/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/partners/"/>
+  </url>
+  <url>
+    <loc>https://careersentinel.de/de/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://careersentinel.de/partners/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://careersentinel.de/de/partners/"/>
+  </url>
+</urlset>
