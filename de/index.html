@@ -388,13 +388,29 @@
   /* ---------- fair questions ---------- */
   /* The doubts a careful visitor has before giving an email address or a
      CV: answered in a few plain sentences each, always visible. */
-  .faq { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
-  .faq > div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
-  .faq > div:first-child { grid-column: 1 / -1; }
-  @media (max-width: 760px) { .faq { grid-template-columns: 1fr; } }
-  .faq dt { font-weight: 600; font-size: 17px; margin-bottom: 8px; }
-  .faq dd { color: var(--ink-dim); font-size: 15px; max-width: 78ch; }
-  .faq dd a { padding: 15px 0; }
+  /* Each answer opens on a tap. Native <details>, so it works with a keyboard,
+     a screen reader, the browser's page search and no JavaScript. All five
+     start closed. */
+  .faq { display: grid; gap: 12px; margin-top: 28px; max-width: 860px; }
+  .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    min-height: 60px; padding: 14px 22px; font-weight: 600; font-size: 17px; line-height: 1.35;
+    cursor: pointer; list-style: none; border-radius: 11px; -webkit-tap-highlight-color: transparent; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -5px 5px 0 0;
+    border-right: 2px solid var(--ink-dim); border-bottom: 2px solid var(--ink-dim); transform: rotate(45deg); }
+  .faq details[open] summary { border-radius: 11px 11px 0 0; }
+  .faq details[open] summary::after { transform: rotate(-135deg); margin-top: 5px; }
+  @media (hover: hover) { .faq summary:hover { background: rgba(255, 255, 255, 0.04); } }
+  .faq summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .faq p { color: var(--ink-dim); font-size: 15px; max-width: 78ch; padding: 0 22px 20px; }
+  .faq p a { padding: 15px 0; }
+  @media (max-width: 520px) { .faq summary { padding: 14px 16px; } .faq p { padding: 0 16px 18px; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .faq summary::after { transition: transform 0.2s ease, margin-top 0.2s ease; }
+    .faq details[open] p { animation: faq-in 0.2s ease-out; }
+    @keyframes faq-in { from { opacity: 0; transform: translateY(-4px); } }
+  }
   .final { padding: 88px 0; background: linear-gradient(180deg, var(--night), #003A52); border-top: 1px solid var(--line); }
   .final h2, .final > .wrap > .lede { text-align: center; margin-left: auto; margin-right: auto; }
   .final > .wrap > .lede { margin-bottom: 14px; }
@@ -784,28 +800,28 @@
 
   <section style="padding-top:0">
     <h2>Gute Fragen</h2>
-    <dl class="faq">
-      <div class="rv">
-        <dt>Ist mein Lebenslauf sicher?</dt>
-        <dd>Der kostenlose CV-Check läuft nach festen Regeln. Keine KI liest deine Datei, und ich speichere sie nicht. Auch in der App wird die Datei nicht gespeichert. Der Text wird einmal ausgelesen, dann ist die Datei weg. Was ich behalte, liegt auf Servern in der EU. Um Jobs zu bewerten und deine Unterlagen zu schreiben, geht dieser Text an einen KI-Anbieter in den USA, mit einem Auftragsverarbeitungsvertrag. Niemand trainiert damit eine KI. In den Einstellungen löschst du alles mit einem Klick. <a href="../datenschutz.html">Datenschutz</a></dd>
-      </div>
-      <div class="rv">
-        <dt>Woher kommen die Jobs?</dt>
-        <dd>Aus öffentlichen Jobdatenbanken und von den Karriereseiten der Firmen. Career Sentinel schaut jeden Morgen neu nach.</dd>
-      </div>
-      <div class="rv">
-        <dt>Bewirbt sich Career Sentinel für mich?</dt>
-        <dd>Nein. Den letzten Klick machst immer du. Wenn du willst, schreibt dir Career Sentinel Lebenslauf und Anschreiben für eine Stelle, nur mit Fakten aus deinem eigenen Lebenslauf. Abschicken ist deine Entscheidung.</dd>
-      </div>
-      <div class="rv">
-        <dt>Was kostet das?</dt>
-        <dd>Während der Beta ist es kostenlos, für alle, die in die Beta aufgenommen werden.</dd>
-      </div>
-      <div class="rv">
-        <dt>Wann komme ich rein?</dt>
-        <dd>Ich lasse immer nur ein paar Leute auf einmal rein. Ein Datum kann ich dir nicht versprechen. Wenn ich dir einen Platz anbieten kann, schreibe ich dir eine E-Mail. Der <a href="https://check.careersentinel.de/check?lang=de&amp;via=faq">kostenlose CV-Check</a> steht schon jetzt allen offen.</dd>
-      </div>
-    </dl>
+    <div class="faq">
+      <details class="rv">
+        <summary>Ist mein Lebenslauf sicher?</summary>
+        <p>Der kostenlose CV-Check läuft nach festen Regeln. Keine KI liest deine Datei, und ich speichere sie nicht. Auch in der App wird die Datei nicht gespeichert. Der Text wird einmal ausgelesen, dann ist die Datei weg. Was ich behalte, liegt auf Servern in der EU. Um Jobs zu bewerten und deine Unterlagen zu schreiben, geht dieser Text an einen KI-Anbieter in den USA, mit einem Auftragsverarbeitungsvertrag. Niemand trainiert damit eine KI. In den Einstellungen löschst du alles mit einem Klick. <a href="../datenschutz.html">Datenschutz</a></p>
+      </details>
+      <details class="rv">
+        <summary>Woher kommen die Jobs?</summary>
+        <p>Aus öffentlichen Jobdatenbanken und von den Karriereseiten der Firmen. Career Sentinel schaut jeden Morgen neu nach.</p>
+      </details>
+      <details class="rv">
+        <summary>Bewirbt sich Career Sentinel für mich?</summary>
+        <p>Nein. Den letzten Klick machst immer du. Wenn du willst, schreibt dir Career Sentinel Lebenslauf und Anschreiben für eine Stelle, nur mit Fakten aus deinem eigenen Lebenslauf. Abschicken ist deine Entscheidung.</p>
+      </details>
+      <details class="rv">
+        <summary>Was kostet das?</summary>
+        <p>Während der Beta ist es kostenlos, für alle, die in die Beta aufgenommen werden.</p>
+      </details>
+      <details class="rv">
+        <summary>Wann komme ich rein?</summary>
+        <p>Ich lasse immer nur ein paar Leute auf einmal rein. Ein Datum kann ich dir nicht versprechen. Wenn ich dir einen Platz anbieten kann, schreibe ich dir eine E-Mail. Der <a href="https://check.careersentinel.de/check?lang=de&amp;via=faq">kostenlose CV-Check</a> steht schon jetzt allen offen.</p>
+      </details>
+    </div>
   </section>
 </div>
 
